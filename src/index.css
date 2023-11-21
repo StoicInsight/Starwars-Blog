@@ -1,68 +1,79 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Kenia&family=Montserrat+Alternates:wght@100;300;400;500;600;700&family=Mooli&family=Nunito:wght@200&family=Roboto:wght@300;400;500&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  margin: 0;
+  background-color: #151515;
+  font-family: 'Mooli', sans-serif;
+
+}
+
+.root {
+  display: flex ;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+
+.side-bar {
+  width: 10rem;
+  color: #fff;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  padding: 6rem 2rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.side-bar h1 {
+
+  font-size: 1.3rem;
+  color: rgba(128, 128, 128, 0.558);
+  padding-bottom: 1.2rem;
+
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+.nav-items {
+  list-style: none;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 1rem; 
+}
+
+.active-link {
+  border-left: .3rem solid orange;
+}
+
+.characters {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 2rem;
+}
+
+.character {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black ;
+  width: 300px;
+  height: 240px;
+  color: white;
+}
+
+.character img {
+  width: 100%;
+  height: 200px;
 }
