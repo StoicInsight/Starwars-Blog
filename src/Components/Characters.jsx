@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-const characterImages = [
-  {
-    character: 'Luke Skywalker',
-    image: '/Luke.webp',
-  },
-];
-
 const Characters = () => {
   const [characterList, setCharacterList] = useState([]);
 
@@ -22,31 +15,17 @@ const Characters = () => {
     setCharacterList(data.results);
   };
 
-  const getImage = (name) => {
-    characterImages.filter((char) => {
-      if (char.character === name) {
-        return char.image;
-      } else return 'No Image';
-    });
-  };
-
-  console.log('Image', getImage('Luke Skywalker'));
-
-  // console.log(getImage);
-
-  console.log(typeof characterList);
-
   return (
-    <div className='characters'>
+    <section className='container'>
       {characterList.map((el, key) => {
         return (
-          <div key={key} className='character'>
-            <img src={`${el.name}.jpeg`} alt='' />
+          <div key={key} className='container-items'>
+            <img src={`/Characters/${el.name}.jpeg`} alt='' />
             {el.name}
           </div>
         );
       })}
-    </div>
+    </section>
   );
 };
 
