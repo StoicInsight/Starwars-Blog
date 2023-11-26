@@ -7,8 +7,6 @@ const Locations = () => {
     getLocations();
   }, []);
 
-  console.log('Locations', locationList);
-
   const getLocations = async () => {
     const res = await fetch('https://www.swapi.tech/api/planets');
     const data = await res.json();

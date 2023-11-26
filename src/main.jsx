@@ -9,7 +9,7 @@ import Characters from './Components/Characters.jsx';
 import Species from './Components/Species.jsx';
 import Locations from './Components/Locations.jsx';
 import Vehicles from './Components/Vehicles.jsx';
-import Weapons from './Components/Weapons.jsx';
+import Character from './Components/Character.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,11 +40,11 @@ const router = createBrowserRouter([
         path: '/Vehicles',
         element: <Vehicles />,
       },
-      {
-        path: '/Weapons',
-        element: <Weapons />,
-      },
     ],
+  },
+  {
+    path: '/Characters/Character:id',
+    element: <Character />,
   },
 ]);
 

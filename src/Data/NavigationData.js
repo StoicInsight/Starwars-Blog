@@ -8,16 +8,8 @@ const Nav = [
     route: '/Creatures',
   },
   {
-    item: 'Droids',
-    route: '/Droids',
-  },
-  {
     item: 'Locations',
     route: '/Locations',
-  },
-  {
-    item: 'Organizations',
-    route: '/Organizations',
   },
   {
     item: 'Species',
@@ -26,10 +18,6 @@ const Nav = [
   {
     item: 'Vehicles',
     route: '/Vehicles',
-  },
-  {
-    item: 'Weapons+Tech',
-    route: '/Weapons+Tech',
   },
 ];
 

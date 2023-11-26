@@ -4,12 +4,26 @@ import { Outlet, Link } from 'react-router-dom';
 
 export const Root = () => {
   const [activeLink, setActiveLink] = useState('Characters');
-
-  console.log(activeLink);
+  const [favoriteActive, setFavoriteActive] = useState(false);
+  const favorites = 0;
 
   return (
     <>
-      <h1 className='browse'>Browse databank</h1>
+      <div className='browse'>
+        <h1>StarWars //</h1>
+        <div
+          className='drop-down'
+          onMouseOver={() => setFavoriteActive(true)}
+          onMouseLeave={() => setFavoriteActive(false)}
+        >
+          <button>
+            Favorites <span>{favorites}</span>
+          </button>
+          <div className='drop-menu'>
+            
+          </div>
+        </div>
+      </div>
 
       <div className='root'>
         <nav className='side-bar'>
