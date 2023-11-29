@@ -1,11 +1,14 @@
 import { Nav } from '../Data/NavigationData';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { Context } from '../Context';
 
 export const Root = () => {
   const [activeLink, setActiveLink] = useState('Characters');
   const [favoriteActive, setFavoriteActive] = useState(false);
-  const favorites = 0;
+  const trackContext = useContext(Context);
+
+  console.log('track context', trackContext.favoriteItems);
 
   return (
     <>
@@ -17,10 +20,30 @@ export const Root = () => {
           onMouseLeave={() => setFavoriteActive(false)}
         >
           <button>
-            Favorites <span>{favorites}</span>
+            Favorites <span>{trackContext.favoriteItems.length}</span>
           </button>
-          <div className='drop-menu'>
-            
+          <div
+            className={`drop-menu ${favoriteActive ? null : 'hidden'}`}
+            onMouseOver={() => setFavoriteActive(true)}
+            onMouseLeave={() => setFavoriteActive(false)}
+          >
+            {trackContext.favoriteItems.length > 0 ? (
+              trackContext.favoriteItems.map((item, key) => (
+                <div className='favorite-name' key={key}>
+                  <p>{item.name}</p>
+                  <button
+                    onClick={() => {
+                      trackContext.removeFavorite(item),
+                        console.log('removing', item);
+                    }}
+                  >
+                    🗑️
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p>empty</p>
+            )}
           </div>
         </div>
       </div>
@@ -30,7 +53,6 @@ export const Root = () => {
           <h1>Browse</h1>
           <ul className='nav-items'>
             {Nav.map((el, key) => {
-              console.log(el);
               return (
                 <li
                   key={key}

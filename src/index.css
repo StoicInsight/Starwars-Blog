@@ -29,6 +29,10 @@ body {
   border-bottom: 1px solid white;
 }
 
+.drop-down {
+  position: relative;
+}
+
 .drop-down button {
   font-size: 1rem;
   color: white;
@@ -40,13 +44,35 @@ body {
 }
 
 .drop-down span {
-  background-color: blue;
+  background-color: rgb(130, 166, 216);
   padding: .4rem;
   border-radius: 50%;
   margin-left: .5rem;
+}
+
+.drop-menu {
+  top: 2.8rem;
+  width: 150px;
+  background-color: rgb(130, 166, 216);
+  position: absolute;
+  border-radius: 1rem;
+  padding: 1rem;
 
 }
 
+.favorite-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.favorite-name > button {
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
 
 .side-bar {
   width: 10rem;

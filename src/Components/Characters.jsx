@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Context } from '../Context';
 import { Link } from 'react-router-dom';
 
 const Characters = () => {
   const [characterList, setCharacterList] = useState([]);
-  let favorite = true;
 
   useEffect(() => {
     getCharacters();
   }, []);
 
-  console.log('Characters', characterList);
-
   const getCharacters = async () => {
     const res = await fetch('https://www.swapi.tech/api/people');
     const data = await res.json();
-
-    console.log(data);
     setCharacterList(data.results);
   };
+
+  const trackContext = useContext(Context);
 
   return (
     <section className='container'>
@@ -28,13 +26,15 @@ const Characters = () => {
             <div className='item-description'>
               <h3>{el.name}</h3>
               <div className='item-buttons'>
-                <Link
-                  className='learn'
-                  to={`/Chararacters/Character/${el.uid}`}
-                >
+                <Link className='learn' to={`/characters/${el.uid}`}>
                   Learn More
                 </Link>
-                <button className='star'> ★</button>
+                <button
+                  className='star'
+                  onClick={() => trackContext.addFavorite(el)}
+                >
+                  ★
+                </button>
               </div>
             </div>
           </div>
