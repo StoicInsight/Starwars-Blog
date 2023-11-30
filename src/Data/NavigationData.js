@@ -11,14 +11,6 @@ const Nav = [
     item: 'Locations',
     route: '/Locations',
   },
-  {
-    item: 'Species',
-    route: '/Species',
-  },
-  {
-    item: 'Vehicles',
-    route: '/Vehicles',
-  },
 ];
 
 export { Nav };

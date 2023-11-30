@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../Context';
+import Loader from './Loader';
 
 const Creatures = () => {
   const [creaturesList, setCreaturesList] = useState([]);
@@ -14,16 +17,35 @@ const Creatures = () => {
     setCreaturesList(data.results);
   };
 
+  const trackContext = useContext(Context);
+
   return (
     <section className='container'>
-      {creaturesList.map((el, key) => {
-        return (
-          <div key={key} className='container-items'>
-            <img src={`/Characters/${el.name}.jpeg`} alt='' />
-            {el.name}
-          </div>
-        );
-      })}
+      {creaturesList.length > 0 ? (
+        creaturesList.map((el, key) => {
+          return (
+            <div key={key} className='container-item'>
+              <img src={`/Creatures/${el.name}.jpeg`} alt='' />
+              <div className='item-description'>
+                <h3>{el.name}</h3>
+                <div className='item-buttons'>
+                  <Link className='learn' to={`/species/${el.uid}`}>
+                    Learn More
+                  </Link>
+                  <button
+                    className='star'
+                    onClick={() => trackContext.addFavorite(el)}
+                  >
+                    ★
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      ) : (
+        <Loader />
+      )}
     </section>
   );
 };

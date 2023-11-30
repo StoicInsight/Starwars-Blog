@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Context } from '../Context';
+import { Link } from 'react-router-dom';
 
 const Locations = () => {
   const [locationList, setLocationList] = useState([]);
@@ -6,6 +8,8 @@ const Locations = () => {
   useEffect(() => {
     getLocations();
   }, []);
+
+  const trackContext = useContext(Context);
 
   const getLocations = async () => {
     const res = await fetch('https://www.swapi.tech/api/planets');
@@ -18,9 +22,22 @@ const Locations = () => {
     <section className='container'>
       {locationList.map((el, key) => {
         return (
-          <div key={key} className='container-items'>
+          <div key={key} className='container-item'>
             <img src={`/Planets/${el.name}.jpeg`} alt='' />
-            {el.name}
+            <div className='item-description'>
+              <h3>{el.name}</h3>
+              <div className='item-buttons'>
+                <Link className='learn' to={`/characters/${el.uid}`}>
+                  Learn More
+                </Link>
+                <button
+                  className='star'
+                  onClick={() => trackContext.addFavorite(el)}
+                >
+                  ★
+                </button>
+              </div>
+            </div>
           </div>
         );
       })}

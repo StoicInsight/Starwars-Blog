@@ -3,15 +3,12 @@ import * as ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './routes/root.jsx';
-import Planets from './Components/Planets.jsx';
 import Creatures from './Components/Creatures.jsx';
 import Characters from './Components/Characters.jsx';
-import Species from './Components/Species.jsx';
 import Locations from './Components/Locations.jsx';
-import Vehicles from './Components/Vehicles.jsx';
 import Character from './Components/Character.jsx';
+import Creature from './Components/Creature.jsx';
 import { FavoritesContext } from './Context.jsx';
-import Contact from './Components/Con.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,14 +20,6 @@ const router = createBrowserRouter([
         element: <Characters />,
       },
       {
-        path: '/Planets',
-        element: <Planets />,
-      },
-      {
-        path: '/Species',
-        element: <Species />,
-      },
-      {
         path: '/Creatures',
         element: <Creatures />,
       },
@@ -39,14 +28,14 @@ const router = createBrowserRouter([
         element: <Locations />,
       },
       {
-        path: '/Vehicles',
-        element: <Vehicles />,
+        path: 'characters/:characterId',
+        element: <Character />,
+      },
+      {
+        path: 'species/:speciesId',
+        element: <Creature />,
       },
     ],
-  },
-  {
-    path: 'characters/:characterId',
-    element: <Character />,
   },
 ]);
 

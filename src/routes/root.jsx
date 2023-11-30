@@ -8,8 +8,6 @@ export const Root = () => {
   const [favoriteActive, setFavoriteActive] = useState(false);
   const trackContext = useContext(Context);
 
-  console.log('track context', trackContext.favoriteItems);
-
   return (
     <>
       <div className='browse'>
@@ -61,7 +59,6 @@ export const Root = () => {
                 >
                   <Link to={el.route}>{el.item}</Link>
                 </li>
-                // <h1>{el.item}</h1>
               );
             })}
           </ul>
