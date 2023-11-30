@@ -27,7 +27,7 @@ const Locations = () => {
             <div className='item-description'>
               <h3>{el.name}</h3>
               <div className='item-buttons'>
-                <Link className='learn' to={`/characters/${el.uid}`}>
+                <Link className='learn' to={`/planets/${el.uid}`}>
                   Learn More
                 </Link>
                 <button

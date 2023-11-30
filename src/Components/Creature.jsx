@@ -6,12 +6,8 @@ const Creature = () => {
   const [creature, setCreature] = useState(null);
   const param = useParams();
 
-  console.log('Param', param);
-
   useEffect(() => {
-    setTimeout(() => {
-      getCreature();
-    }, 1000);
+    getCreature();
   }, []);
 
   const getCreature = async () => {
@@ -22,8 +18,6 @@ const Creature = () => {
 
     setCreature(data.result);
   };
-
-  console.log(creature);
 
   return (
     <section className='character-section'>

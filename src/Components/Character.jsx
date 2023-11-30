@@ -6,12 +6,8 @@ const Character = () => {
   const [character, setCharacter] = useState(null);
   const param = useParams();
 
-  console.log('Character', character);
-
   useEffect(() => {
-    setTimeout(() => {
-      getCharacter();
-    }, 1000);
+    getCharacter();
   }, []);
 
   const getCharacter = async () => {

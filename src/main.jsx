@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Characters from './Components/Characters.jsx';
 import Locations from './Components/Locations.jsx';
 import Character from './Components/Character.jsx';
 import Creature from './Components/Creature.jsx';
+import Location from './Components/Location.jsx';
 import { FavoritesContext } from './Context.jsx';
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'species/:speciesId',
         element: <Creature />,
+      },
+      {
+        path: 'planets/:planetId',
+        element: <Location />,
       },
     ],
   },
